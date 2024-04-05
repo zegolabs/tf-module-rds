@@ -1,4 +1,4 @@
-# TF MODULE RDS
+# TF-MODULE-RDS
 A Terraform module to create RDS instances
 
 ## Requirements
