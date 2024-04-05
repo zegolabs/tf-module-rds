@@ -46,7 +46,7 @@ resource "aws_db_subnet_group" "this" {
 resource "aws_db_parameter_group" "postgres12" {
   count = var.db_family == "postgres12" ? 1 : 0
 
-  name   = "${var.environment_name}-${var.db_name}-${var.db_family}"
+  name   = "${var.db_instance_name}-${var.environment_shortname}-param-group"
   family = var.db_family
 
   parameter {
