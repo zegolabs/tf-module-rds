@@ -56,6 +56,7 @@ variable "db_security_groups" {
 variable "db_subnet_group_override" {
   description = "The subnet group name for the RDS instance"
   type        = string
+  default     = ""
 }
 
 variable "db_multi_az" {
@@ -71,6 +72,7 @@ variable "db_performance_insights" {
 variable "db_enhanced_monitoring_interval" {
   description = "The interval for enhanced monitoring"
   type        = number
+  default     = 0
 }
 
 variable "db_additional_tags" {
