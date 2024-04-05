@@ -7,7 +7,7 @@ resource "aws_db_instance" "db" {
   engine               = "postgres"
   engine_version       = var.db_engine_version
   instance_class       = var.db_instance_class
-  parameter_group_name = "${var.environment_name}-${var.db_name}-${var.db_family}"
+  parameter_group_name = "${var.db_instance_name}-${var.environment_shortname}-param-group"
 
   username = var.db_username
   password = data.aws_ssm_parameter.rds_database_password.value ######
@@ -143,7 +143,7 @@ resource "aws_db_parameter_group" "postgres12" {
 resource "aws_db_parameter_group" "postgres15" {
   count = var.db_family == "postgres15" ? 1 : 0
 
-  name   = "${var.environment_name}-${var.db_name}-${var.db_family}"
+  name   = "${var.db_instance_name}-${var.environment_shortname}-param-group"
   family = "postgres15"
 
   parameter {
@@ -241,7 +241,7 @@ resource "aws_db_parameter_group" "postgres15" {
 resource "aws_db_parameter_group" "postgres16" {
   count = var.db_family == "postgres16" ? 1 : 0
 
-  name   = "${var.environment_name}-${var.db_name}-${var.db_family}"
+  name   = "${var.db_instance_name}-${var.environment_shortname}-param-group"
   family = "postgres16"
 
   parameter {
